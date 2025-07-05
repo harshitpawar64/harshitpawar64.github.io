@@ -4,6 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harshit Pawar - Developer Portfolio</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="The portfolio of Harshit Pawar, a FIDE Master and aspiring developer specializing in building impactful solutions with modern technologies.">
+    <meta name="keywords" content="Harshit Pawar, portfolio, developer, FIDE Master, chess, web developer, software engineer, Python, JavaScript">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://harshitpawar64.github.io/">
+    <meta property="og:title" content="Harshit Pawar - Developer & FIDE Master">
+    <meta property="og:description" content="Explore the portfolio of Harshit Pawar, showcasing projects and skills in web development and strategic thinking from the world of chess.">
+    <meta property="og:image" content="https://harshitpawar64.github.io/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://harshitpawar64.github.io/">
+    <meta property="twitter:title" content="Harshit Pawar - Developer & FIDE Master">
+    <meta property="twitter:description" content="Explore the portfolio of Harshit Pawar, showcasing projects and skills in web development and strategic thinking from the world of chess.">
+    <meta property="twitter:image" content="https://harshitpawar64.github.io/social-preview.png">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="icons/favicon.ico">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Modern Font Pairing: Space Grotesk for headings, Inter for body -->
@@ -169,14 +195,14 @@
         }
 
         header {
-            opacity: 0;
-            transform: translateY(20px);
+            opacity: 1;
+            transform: translateY(0);
             transition: opacity 0.8s var(--easing), transform 0.8s var(--easing);
         }
 
         section {
-            opacity: 0.5;
-            transform: translateY(20px);
+            opacity: 1;
+            transform: translateY(0);
             transition: opacity 0.8s var(--easing), transform 0.8s var(--easing);
         }
     </style>
@@ -198,11 +224,11 @@
     <nav class="fixed top-0 left-0 right-0 bg-opacity-0 backdrop-blur-0 z-50 px-6 py-4 transition-all duration-300" id="main-nav">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <a href="#" class="text-2xl font-bold gradient-text">HP</a>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#about" class="nav-link text-white hover:text-white">About</a>
-                <a href="#projects" class="nav-link text-white hover:text-white">Projects</a>
-                <a href="#skills" class="nav-link text-white hover:text-white">Skills</a>
-                <a href="#contact" class="nav-link text-white hover:text-white">Contact</a>
+            <div class="hidden md:flex items-center">
+                <a href="#about" class="nav-link text-white hover:text-white mx-4">About</a>
+                <a href="#skills" class="nav-link text-white hover:text-white mx-4">Skills</a>
+                <a href="#projects" class="nav-link text-white hover:text-white mx-4">Projects</a>
+                <a href="#contact" class="nav-link text-white hover:text-white mx-4">Contact</a>
             </div>
             <div class="flex md:hidden">
                 <button id="mobile-menu-button" class="text-white">
@@ -213,8 +239,8 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden bg-[#13151f] mt-2 py-4 px-4 rounded-lg shadow-lg md:hidden">
             <a href="#about" class="block py-2 text-white hover:text-[#ff5e62]">About</a>
-            <a href="#projects" class="block py-2 text-white hover:text-[#ff5e62]">Projects</a>
             <a href="#skills" class="block py-2 text-white hover:text-[#ff5e62]">Skills</a>
+            <a href="#projects" class="block py-2 text-white hover:text-[#ff5e62]">Projects</a>
             <a href="#contact" class="block py-2 text-white hover:text-[#ff5e62]">Contact</a>
         </div>
     </nav>
@@ -235,7 +261,7 @@
                         </div>
                     </div>
                     <p class="text-lg text-gray-300 mb-8 max-w-md">
-                        An aspiring developer with a passion for creating impactful solutions through code. Let's build something amazing together.
+                        A FIDE Master in chess and aspiring developer with a passion for creating impactful solutions through code. Combining strategic thinking from chess with technical skills in development.
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="https://github.com/harshitpawar64" target="_blank"
@@ -243,8 +269,16 @@
                             <i class="fab fa-github mr-2"></i> GitHub
                         </a>
                         <a href="https://www.linkedin.com/in/harshit-pawar-chess/" target="_blank"
-                            class="button button-primary flex items-center">
+                            class="button button-outline flex items-center">
                             <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                        </a>
+                        <a href="https://ratings.fide.com/profile/366130595" target="_blank"
+                            class="button button-outline flex items-center">
+                            <i class="fas fa-chess-knight mr-2"></i> FIDE Profile
+                        </a>
+                        <a href="https://www.chess.com/member/tactrics64" target="_blank"
+                            class="button button-outline flex items-center">
+                            <i class="fas fa-chess mr-2"></i> Chess.com
                         </a>
                         <a href="#contact" class="button button-outline flex items-center">
                             <i class="fas fa-envelope mr-2"></i> Contact Me
@@ -271,44 +305,128 @@
             <div class="section-3d p-8 md:p-12">
                 <div class="flex flex-col md:flex-row gap-8">
                     <div class="md:w-3/5" data-aos="fade-right">
-                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            Hello! I'm <span class="text-[#ff5e62] font-medium">Harshit Pawar</span>, an aspiring developer with a passion for creating and learning. I'm currently exploring various technologies and frameworks, eager to build impactful projects.
-                        </p>
-                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            My journey in tech is driven by curiosity and a desire to solve real-world problems through code. I'm always looking for new challenges and opportunities to grow my skills.
-                        </p>
-                        <p class="text-lg text-gray-300 leading-relaxed">
-                            This personal website is a work in progress, just like my skills! I'll be updating it regularly with new projects and insights. Feel free to connect with me on GitHub or LinkedIn.
-                        </p>
+                        <!-- Introduction with enhanced styling -->
+                        <div class="relative mb-8 p-6 bg-[#13151f]/60 rounded-lg border-l-4 border-[#ff5e62] shadow-lg">
+                            <h3 class="text-2xl font-bold mb-3 flex items-center">
+                                <i class="fas fa-user-circle text-[#ff5e62] mr-3"></i>
+                                <span>Hello, I'm <span class="gradient-text">Harshit Pawar</span></span>
+                            </h3>
+                            <p class="text-lg text-gray-300 leading-relaxed">
+                                An aspiring developer with a passion for creating and learning. I'm currently exploring various technologies and frameworks, eager to build impactful projects.
+                            </p>
+                        </div>
+
+                        <!-- Chess accomplishments -->
+                        <div class="relative mb-8 p-6 bg-[#13151f]/60 rounded-lg border-l-4 border-[#7459ea] shadow-lg">
+                            <h3 class="text-2xl font-bold mb-3 flex items-center">
+                                <i class="fas fa-chess-knight text-[#7459ea] mr-3"></i>
+                                <span>Chess <span class="gradient-text purple">Accomplishments</span></span>
+                            </h3>
+                            <p class="text-lg text-gray-300 leading-relaxed mb-4">
+                                I'm a <span class="font-bold text-white">FIDE Master</span> in chess with a current FIDE rating of 2259. My strategic thinking and problem-solving abilities from chess translate well into my approach to coding and development.
+                            </p>
+                            <div class="flex flex-wrap gap-3 mt-2">
+                                <a href="https://ratings.fide.com/profile/366130595" target="_blank" class="tech-pill">
+                                    <i class="fas fa-trophy mr-1"></i> FIDE Profile
+                                </a>
+                                <a href="https://www.chess.com/member/tactrics64" target="_blank" class="tech-pill">
+                                    <i class="fas fa-chess mr-1"></i> Chess.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Journey section -->
+                        <div class="relative mb-8 p-6 bg-[#13151f]/60 rounded-lg border-l-4 border-[#ff5e62] shadow-lg">
+                            <h3 class="text-2xl font-bold mb-3 flex items-center">
+                                <i class="fas fa-road text-[#ff5e62] mr-3"></i>
+                                <span>My Journey</span>
+                            </h3>
+                            <p class="text-lg text-gray-300 leading-relaxed">
+                                My path in tech is driven by curiosity and a desire to solve real-world problems through code. I'm always looking for new challenges and opportunities to grow my skills.
+                            </p>
+                        </div>
+
+                        <!-- Current status -->
+                        <div class="relative p-6 bg-[#13151f]/60 rounded-lg border-l-4 border-[#ff5e62] shadow-lg">
+                            <h3 class="text-2xl font-bold mb-3 flex items-center">
+                                <i class="fas fa-rocket text-[#ff5e62] mr-3"></i>
+                                <span>What I'm Up To</span>
+                            </h3>
+                            <p class="text-lg text-gray-300 leading-relaxed">
+                                This personal website is a work in progress, just like my skills! I'll be updating it regularly with new projects and insights. Feel free to connect with me on GitHub or LinkedIn.
+                            </p>
+                            <!-- Social links -->
+                            <div class="mt-4 flex gap-4">
+                                <a href="https://github.com/harshitpawar64" class="text-gray-400 hover:text-[#7459ea] transition-colors" target="_blank">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/harshit-pawar-chess/" class="text-gray-400 hover:text-[#00d2ff] transition-colors" target="_blank">
+                                    <i class="fab fa-linkedin text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="md:w-2/5" data-aos="fade-left">
-                        <div class="glassmorphism p-5 rounded-xl">
-                            <h3 class="text-xl font-bold mb-3 gradient-text blue">My Focus</h3>
-                            <ul class="space-y-2">
-                                <li class="flex items-start">
-                                    <div class="w-5 h-5 flex-shrink-0 flex items-center justify-center bg-[#ff5e62]/20 rounded-full mr-2 mt-1">
-                                        <i class="fas fa-code text-[#ff5e62] text-xs"></i>
+                        <div class="glassmorphism p-7 rounded-xl border border-gray-700/50 shadow-lg relative overflow-hidden h-full flex flex-col flex-grow">
+                            <!-- Background accent -->
+                            <div class="absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-[#00d2ff]/10 to-[#7459ea]/10 rounded-full blur-lg"></div>
+
+                            <h3 class="text-2xl font-bold mb-5 gradient-text blue relative mt-0">My Focus</h3>
+                            <ul class="space-y-4 relative z-10 flex-grow flex flex-col justify-between">
+                                <li class="focus-item group py-3">
+                                    <div class="w-11 h-11 flex-shrink-0 flex items-center justify-center bg-[#ff5e62]/20 rounded-lg mr-4 group-hover:bg-[#ff5e62]/30 transition-all">
+                                        <i class="fas fa-code text-[#ff5e62] text-xl"></i>
                                     </div>
-                                    <span class="text-gray-300 text-sm">Clean, efficient code</span>
+                                    <div>
+                                        <h4 class="text-white font-medium text-lg">Clean, efficient code</h4>
+                                        <p class="text-gray-400 text-sm mt-2">Building solutions that are readable, maintainable and performant.</p>
+                                    </div>
                                 </li>
-                                <li class="flex items-start">
-                                    <div class="w-5 h-5 flex-shrink-0 flex items-center justify-center bg-[#7459ea]/20 rounded-full mr-2 mt-1">
-                                        <i class="fas fa-laptop-code text-[#7459ea] text-xs"></i>
+                                <li class="focus-item group py-3">
+                                    <div class="w-11 h-11 flex-shrink-0 flex items-center justify-center bg-[#7459ea]/20 rounded-lg mr-4 group-hover:bg-[#7459ea]/30 transition-all">
+                                        <i class="fas fa-laptop-code text-[#7459ea] text-xl"></i>
                                     </div>
-                                    <span class="text-gray-300 text-sm">Exploring new technologies</span>
+                                    <div>
+                                        <h4 class="text-white font-medium text-lg">Exploring new technologies</h4>
+                                        <p class="text-gray-400 text-sm mt-2">Continuously learning and adapting to new tools and frameworks.</p>
+                                    </div>
                                 </li>
-                                <li class="flex items-start">
-                                    <div class="w-5 h-5 flex-shrink-0 flex items-center justify-center bg-[#00d2ff]/20 rounded-full mr-2 mt-1">
-                                        <i class="fas fa-lightbulb text-[#00d2ff] text-xs"></i>
+                                <li class="focus-item group py-3">
+                                    <div class="w-11 h-11 flex-shrink-0 flex items-center justify-center bg-[#00d2ff]/20 rounded-lg mr-4 group-hover:bg-[#00d2ff]/30 transition-all">
+                                        <i class="fas fa-lightbulb text-[#00d2ff] text-xl"></i>
                                     </div>
-                                    <span class="text-gray-300 text-sm">Problem-solving</span>
+                                    <div>
+                                        <h4 class="text-white font-medium text-lg">Problem-solving</h4>
+                                        <p class="text-gray-400 text-sm mt-2">Finding elegant solutions to complex challenges through logical thinking.</p>
+                                    </div>
                                 </li>
-                                <li class="flex items-start">
-                                    <div class="w-5 h-5 flex-shrink-0 flex items-center justify-center bg-[#ff5e62]/20 rounded-full mr-2 mt-1">
-                                        <i class="fas fa-users text-[#ff5e62] text-xs"></i>
+                                <li class="focus-item group py-3">
+                                    <div class="w-11 h-11 flex-shrink-0 flex items-center justify-center bg-[#ff5e62]/20 rounded-lg mr-4 group-hover:bg-[#ff5e62]/30 transition-all">
+                                        <i class="fas fa-users text-[#ff5e62] text-xl"></i>
                                     </div>
-                                    <span class="text-gray-300 text-sm">Collaborative development</span>
+                                    <div>
+                                        <h4 class="text-white font-medium text-lg">Collaborative development</h4>
+                                        <p class="text-gray-400 text-sm mt-2">Working effectively in teams to create better software together.</p>
+                                    </div>
+                                </li>
+                                <li class="focus-item group py-3">
+                                    <div class="w-11 h-11 flex-shrink-0 flex items-center justify-center bg-[#7459ea]/20 rounded-lg mr-4 group-hover:bg-[#7459ea]/30 transition-all">
+                                        <i class="fas fa-chess-knight text-[#7459ea] text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-medium text-lg">Strategic thinking</h4>
+                                        <p class="text-gray-400 text-sm mt-2">Applying chess-based strategic planning to solve technical challenges.</p>
+                                    </div>
+                                </li>
+                                <li class="focus-item group py-3">
+                                    <div class="w-11 h-11 flex-shrink-0 flex items-center justify-center bg-[#00d2ff]/20 rounded-lg mr-4 group-hover:bg-[#00d2ff]/30 transition-all">
+                                        <i class="fas fa-project-diagram text-[#00d2ff] text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-medium text-lg">System architecture</h4>
+                                        <p class="text-gray-400 text-sm mt-2">Designing scalable and maintainable software architectures.</p>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -457,15 +575,35 @@
 
                     <div class="md:w-1/2 mt-12 md:mt-0" data-aos="fade-left">
                         <div class="glassmorphism p-6 md:p-8 rounded-xl">
-                            <h3 class="text-2xl font-bold gradient-text blue mb-8">Contact Form Coming Soon</h3>
-                            <p class="text-gray-300 mb-6">
-                                I'm currently working on adding a contact form to make it easier for you to reach out. In the meantime, please use one of the methods on the left to get in touch!
-                            </p>
-                            <div class="flex justify-center">
-                                <div class="button button-primary cursor-not-allowed opacity-75">
-                                    <i class="fas fa-clock mr-2"></i> Coming Soon
+                            <h3 class="text-2xl font-bold gradient-text blue mb-8">Send Me a Message</h3>
+                            <form action="https://formspree.io/f/xvgrnklz" method="POST" id="contact-form" class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-white text-sm font-medium mb-2">Name</label>
+                                    <input type="text" id="name" name="name" required
+                                        class="w-full px-4 py-2 bg-[#13151f] border border-gray-700 rounded-lg focus:outline-none focus:border-[#00d2ff] text-white transition-colors"
+                                        placeholder="Your name">
                                 </div>
-                            </div>
+                                <div>
+                                    <label for="email" class="block text-white text-sm font-medium mb-2">Email</label>
+                                    <input type="email" id="email" name="email" required
+                                        class="w-full px-4 py-2 bg-[#13151f] border border-gray-700 rounded-lg focus:outline-none focus:border-[#00d2ff] text-white transition-colors"
+                                        placeholder="your.email@example.com">
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-white text-sm font-medium mb-2">Message</label>
+                                    <textarea id="message" name="message" rows="4" required
+                                        class="w-full px-4 py-2 bg-[#13151f] border border-gray-700 rounded-lg focus:outline-none focus:border-[#00d2ff] text-white transition-colors resize-none"
+                                        placeholder="Your message here..."></textarea>
+                                </div>
+                                <div class="pt-2">
+                                    <button type="submit" class="button button-primary w-full">
+                                        <i class="fas fa-paper-plane mr-2"></i> Send Message
+                                    </button>
+                                </div>
+                                <div id="form-status" class="text-center hidden">
+                                    <p class="text-[#00d2ff]">Thanks for your message! I'll get back to you soon.</p>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

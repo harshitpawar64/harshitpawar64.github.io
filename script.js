@@ -54,6 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Setup navigation bar scroll behavior
     setupNavScroll();
+
+    // Setup contact form handling
+    setupContactForm();
 });
 
 // Create geometric shapes for visual interest
@@ -258,7 +261,7 @@ function addButtonEffects() {
 
 // Typing animation with fixed width container
 function initTypeEffect() {
-    const phrases = ["Developer", "Tech Enthusiast", "Problem Solver", "Continuous Learner"];
+    const phrases = ["Developer", "FIDE Master", "Tech Enthusiast", "Problem Solver", "Continuous Learner"];
     let currentPhraseIndex = 0;
     let currentCharIndex = 0;
     let isDeleting = false;
@@ -474,8 +477,8 @@ async function fetchGitHubRepos() {
             const languageColor = repo.language ? languageColors[repo.language] || '#00d2ff' : '#00d2ff';
 
             repoCard.innerHTML = `
-                <div class="neon-highlight"></div>
-                <h3 class="text-xl font-bold text-white mb-2">${repo.name}</h3>
+                <div class="card-top-accent" style="background-color: ${languageColor}"></div>
+                <h3 class="text-xl font-bold text-white mb-3">${repo.name}</h3>
                 <p class="text-base text-gray-300 mb-4 min-h-[60px]">${repo.description || 'No description provided.'}</p>
                 <div class="flex items-center text-gray-400 text-xs mb-4">
                     ${repo.language ?
@@ -561,4 +564,78 @@ function setupNavScroll() {
         mainNav.classList.add('bg-opacity-90', 'backdrop-blur-md', 'shadow-lg');
         mainNav.style.backgroundColor = 'rgba(10, 10, 15, 0.9)';
     }
+}
+
+// Handle contact form submission
+function setupContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        // Show a subtle loading effect on the submit button
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.innerHTML;
+        submitButton.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> Sending...';
+        submitButton.disabled = true;
+
+        try {
+            // Submit the form to Formspree
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+                method: contactForm.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Show success message
+                contactForm.reset();
+                formStatus.classList.remove('hidden');
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    formStatus.classList.add('hidden');
+                }, 5000);
+
+                // Add a success animation
+                const successRipple = document.createElement('div');
+                successRipple.className = 'success-ripple';
+                submitButton.parentNode.appendChild(successRipple);
+
+                setTimeout(() => {
+                    successRipple.remove();
+                }, 1000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            formStatus.innerHTML = '<p class="text-[#ff5e62]">Oops! There was a problem. Please try again.</p>';
+            formStatus.classList.remove('hidden');
+        } finally {
+            // Restore the button
+            submitButton.innerHTML = originalButtonText;
+            submitButton.disabled = false;
+        }
+    });
+
+    // Add focus/blur effects on inputs
+    const formInputs = contactForm.querySelectorAll('input, textarea');
+    formInputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            input.parentElement.classList.add('input-focused');
+        });
+
+        input.addEventListener('blur', () => {
+            if (!input.value) {
+                input.parentElement.classList.remove('input-focused');
+            }
+        });
+    });
 }

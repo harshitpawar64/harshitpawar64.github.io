@@ -351,6 +351,7 @@ p, li, a {
     z-index: 1;
     background: var(--card-bg);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .project-card::before {
@@ -360,19 +361,43 @@ p, li, a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255, 94, 98, 0.1), rgba(116, 89, 234, 0.1));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
     opacity: 0;
     transition: opacity 0.4s var(--easing);
     z-index: -1;
 }
 
+.card-top-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    opacity: 0.8;
+    border-radius: 3px 3px 0 0;
+}
+
 .project-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .project-card:hover::before {
     opacity: 1;
+}
+
+.project-card h3 {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s var(--easing);
+}
+
+.project-card:hover h3 {
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .project-card .language-dot {
@@ -442,4 +467,82 @@ p, li, a {
     .nav-link::after {
         bottom: -2px;
     }
+}
+
+/* Contact form styling */
+#contact-form input,
+#contact-form textarea {
+    background-color: rgba(19, 21, 31, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s var(--easing);
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: var(--accent-3);
+    box-shadow: 0 0 0 2px rgba(0, 210, 255, 0.1);
+    outline: none;
+}
+
+.input-focused label {
+    color: var(--accent-3);
+}
+
+.success-ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.8) 0%, rgba(0, 210, 255, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: successRipple 1s ease-out forwards;
+}
+
+@keyframes successRipple {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Focus items in About section */
+.focus-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s var(--easing);
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid transparent;
+}
+
+.focus-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.focus-item i {
+    transition: transform 0.3s var(--easing);
+}
+
+.focus-item:hover i {
+    transform: scale(1.2);
+}
+
+.focus-item h4 {
+    transition: color 0.3s var(--easing);
+}
+
+.focus-item:hover h4 {
+    color: var(--accent-3);
 }
