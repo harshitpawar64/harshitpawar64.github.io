@@ -6,6 +6,7 @@ const projectsContainer = document.getElementById('projects-container');
 const loadingMessage = document.getElementById('loading-message');
 const errorMessage = document.getElementById('error-message');
 const currentYearElement = document.getElementById('current-year');
+const mainNav = document.getElementById('main-nav');
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
@@ -50,6 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth > 768) {
         initParticleBackground();
     }
+
+    // Setup navigation bar scroll behavior
+    setupNavScroll();
 });
 
 // Create geometric shapes for visual interest
@@ -268,6 +272,10 @@ function initTypeEffect() {
     // Make sure the typing container has fixed dimensions
     const container = typingTextElement.parentNode;
     container.classList.add('typing-container');
+
+    // Ensure proper vertical alignment
+    container.style.display = 'flex';
+    container.style.alignItems = 'center';
 
     function typeEffect() {
         const currentPhrase = phrases[currentPhraseIndex];
@@ -531,3 +539,26 @@ window.addEventListener('scroll', () => {
         element.style.transform = `translateY(${scrollPosition * speed * direction}px)`;
     });
 });
+
+// Setup navigation bar scroll behavior
+function setupNavScroll() {
+    const scrollThreshold = 100; // Pixels to scroll before changing nav style
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > scrollThreshold) {
+            // Scrolled down - add background and shadow
+            mainNav.classList.add('bg-opacity-90', 'backdrop-blur-md', 'shadow-lg');
+            mainNav.style.backgroundColor = 'rgba(10, 10, 15, 0.9)';
+        } else {
+            // At top - transparent
+            mainNav.classList.remove('bg-opacity-90', 'backdrop-blur-md', 'shadow-lg');
+            mainNav.style.backgroundColor = 'transparent';
+        }
+    });
+
+    // Trigger once on page load to set initial state
+    if (window.scrollY > scrollThreshold) {
+        mainNav.classList.add('bg-opacity-90', 'backdrop-blur-md', 'shadow-lg');
+        mainNav.style.backgroundColor = 'rgba(10, 10, 15, 0.9)';
+    }
+}
