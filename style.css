@@ -64,7 +64,9 @@ html, body {
   border-radius: 8px;
   color: #71717a;
   text-decoration: none;
-  transition: color 0.15s ease, transform 0.15s ease;
+  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .social-link svg {
@@ -75,7 +77,8 @@ html, body {
 
 .social-link:hover {
   color: #ffffff;
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.12);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.28));
 }
 
 .social-link:active {
